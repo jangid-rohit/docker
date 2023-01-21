@@ -1,0 +1,63 @@
+To Pull The Container Image
+
+	$docker pull image_name
+	ex:
+	$docker pull centos
+
+To Start/Stop/Delete/Show the Container
+	Note: By default container starts in the attached mode
+
+	To Create the container 
+	$docker run image_name
+	ex:
+	docker run centos
+	
+	To give Custom name
+	$docker run --name custom_name image_name
+	ex:
+	docker run --name mycentos centos
+
+	To Create and run container with command
+	$docker run image_name command_name
+	ex:
+	docker run centos date
+	
+	To Stop the running container
+	$docker stop container_name
+	ex:
+	docker stop mycentos
+	
+	To run stopped container 
+	$docker start container_name
+	ex:
+	docker start mycentos
+	
+	To start container in detached mode add (-d) option
+	$docker run -d image_name
+	d - detach
+	ex:
+	docker run -d centos
+
+	To show the running containers
+	$docker ps
+
+	To show All the containers ( running and stopped )
+	$docker ps -a
+	a - All 
+
+	To Delete the stopped container
+	$docker rm container_name ( or container_id)
+	ex:
+	docker rm mycentos
+	
+	To Delte the running container
+	$docker rm -f container_name
+	ex:
+	docker rm -f mycentos
+	
+	To Execute Another command in the running container
+	$docker exec -it container_name command_name
+	i - stands for interact
+	t - stands for tty ( terminal )
+	ex:
+	docker exec -it mycentos date 
