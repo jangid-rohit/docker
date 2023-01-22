@@ -1,8 +1,30 @@
-To Pull The Container Image
+Working with Images
 
+	To pull the container image
 	$docker pull image_name
 	ex:
 	$docker pull centos
+
+	To list the existing images
+	$docker images
+	or
+	$docker image ls
+	note : both commands work same "images" is the alias of "image ls"
+	
+	To remove existing image
+	$docker image rm image_name
+	ex:
+	docker image rm centos
+	or
+	$docker rmi image_name
+	ex:
+	docker rmi centos
+	
+	To remove dangling images
+	$docker image prune
+
+	To remove all unused images
+	$docker image prune -a
 
 To Start/Stop/Delete/Show the Container
 	Note: By default container starts in the attached mode
@@ -50,14 +72,31 @@ To Start/Stop/Delete/Show the Container
 	ex:
 	docker rm mycentos
 	
-	To Delte the running container
+	To Delete the running container
 	$docker rm -f container_name
 	ex:
 	docker rm -f mycentos
-	
+
+	To Delete all stopped containers
+	$docker container prune
+
 	To Execute Another command in the running container
 	$docker exec -it container_name command_name
 	i - stands for interact
 	t - stands for tty ( terminal )
 	ex:
 	docker exec -it mycentos date 
+
+To serach docker images
+	$docker search image_name
+	ex:
+	docker search centos
+
+To Execute command in running container
+	$docker exec -it container_name command_name
+	ex:
+	docker exec -it mycentos /bin/bash
+
+In Centos to allow installing rpms use
+dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos
+
